@@ -9,7 +9,9 @@ const io = socketio(server).listen(server);
 app.set("view engine", "ejs");
 
 io.on("connection", socket => {
-    console.log("Client Connected!");
+    socket.on("all", data => {
+        io.emit("catchall", data);
+    });
 });
 
 app.get("/", (req, res) => {

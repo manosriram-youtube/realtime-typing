@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
+<style>
+body {
+    background: grey;
+    text-align: center;
+}
+#result {
+    border: 1px solid black;
+    min-height: 50vh;
+    max-width: 50%;
+}
+</style>
+
 <body>
-   Hello from Index.ejs 
+
+<textarea id="txt" onkeydown="emitdata()" type="text" placeholder="Enter your text"></textarea>
+<br />
+<h4 id="result"></h4>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io('http://localhost:5000');
+
+  function emitdata() {
+      let textelement = document.querySelector("#txt");
+      // textelement.value
+      socket.emit("all", textelement.value);
+
+      socket.on("catchall", data => {
+          let catchall = document.querySelector("#result");
+          catchall.innerHTML = data;
+      });
+  }
 </script>
 </html>
