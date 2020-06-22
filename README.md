@@ -1,6 +1,6 @@
 [Youtube Video Part 1](https://www.youtube.com/watch?v=dScTvwoNp1E)
 
-Final part to be uploaded.
+[Youtube Video Part 2](https://www.youtube.com/watch?v=ekYwrLoHjkM)
 
 ```
 npm install
